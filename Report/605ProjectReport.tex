@@ -45,7 +45,7 @@ University of Maryland}
 
 % === ABSTRACT ===
 \begin{abstract}
-    The performance of deep learning models, particularly Convolutional Neural Networks (CNNs), is critically dependent on the underlying hardware architecture and software optimization strategies. This paper presents a comparative performance analysis of a standard CNN architecture trained for image classification on the MNIST dataset. We implement and evaluate the CNN using five distinct execution backends: 
+    The performance of deep learning models, particularly Convolutional Neural Networks (CNNs), is critically dependent on the underlying hardware architecture and software optimization strategies. This paper presents a comparative performance analysis of a standard CNN architecture trained for image classification on the MNIST dataset. We implement and evaluate CNN using five distinct execution backends:
     \begin{enumerate}
         \item A multi-core CPU optimized using Numba's Just-In-Time (JIT) compilation,
         \item an NVIDIA GPU accelerated via Numba's CUDA JIT,
@@ -53,7 +53,12 @@ University of Maryland}
         \item an NVIDIA GPU accelerated via PyTorch's CUDA backend, and
         \item an Apple Silicon GPU utilizing PyTorch's Metal Performance Shaders (MPS) backend.
     \end{enumerate}
-    We analyze the performance of each implementation in terms of training time per epoch, overall training throughput, final test accuracy, and basic memory usage (RAM/VRAM). The results provide empirical insights into the speedup potential, resource utilization, and characteristics of each hardware acceleration approach and framework choice for this common CNN workload. The complete source code is available on GitHub: \url{https://github.com/geetikak13/cnn_performance_comparison}.
+    We analyze the performance of each implementation in terms of training time per epoch, overall training throughput, final test accuracy, and basic memory usage (RAM/VRAM). The results provide empirical insights into the speedup potential, resource utilization, and characteristics of each hardware acceleration approach and framework choice for this common CNN workload. 
+    \\
+    \subsection*{Github}
+    \label{sec:github}
+    The complete source code is available on GitHub: 
+    \href{https://github.com/geetikak13/cnn_performance_comparison}{\color{blue}cnn\_performance\_comparison}.
 \end{abstract}
 
 % === SECTIONS ===
@@ -221,7 +226,12 @@ Figure \ref{fig:results_plots} provides a visual comparison of the performance t
 This study successfully implemented and benchmarked a standard CNN architecture for MNIST classification across five distinct hardware and software environments: Numba (CPU, CUDA) and PyTorch (CPU, CUDA, MPS). Our experiments confirmed the substantial performance gains offered by GPU acceleration, with PyTorch CUDA and PyTorch MPS significantly outperforming CPU-based execution. The comparison between frameworks highlighted the performance advantages of PyTorch's highly optimized backends (especially CUDA/cuDNN) and integrated automatic differentiation compared to the manual Numba CUDA kernels combined with CPU-based backpropagation, which suffered from data transfer overhead. While Numba provided notable acceleration on the CPU compared to interpreted Python, PyTorch CPU performance was competitive. All platforms achieved comparable high accuracy, demonstrating functional equivalence. The choice between these platforms involves balancing raw performance needs, hardware availability, development complexity, and the level of control required over the execution process.
 \\
 \\
-The study also emphasizes the importance of considering the entire training pipeline, including data loading, preprocessing, and model architecture, when evaluating performance. The complete source code is available on GitHub: \url{https://github.com/geetikak13/cnn_performance_comparison}.
+The study also emphasizes the importance of considering the entire training pipeline, including data loading, preprocessing, and model architecture, when evaluating performance. 
+\\
+\\
+\label{sec:github}
+The complete source code is available on GitHub: 
+\href{https://github.com/geetikak13/cnn_performance_comparison}{\color{blue}cnn\_performance\_comparison}.
 \\
 \\
 The results of this study can inform researchers and practitioners in selecting the most suitable hardware and software combinations for their deep learning tasks, particularly when working with CNNs on image classification problems like MNIST. The findings also highlight the importance of considering the entire training pipeline, including data loading, preprocessing, and model architecture, when evaluating performance. Future work could explore more complex models and datasets to further assess the scalability and performance of these platforms in real-world applications.
