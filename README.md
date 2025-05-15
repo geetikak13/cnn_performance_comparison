@@ -55,48 +55,40 @@ cnn_performance_comparison/
 └── main.py                       # Main runner script
 ```
 
+## Setup
+
 1.  **Clone the repository :**
     ```bash
     git clone https://github.com/geetikak13/cnn_performance_comparison
-    cd model-pruning
     ```
 
-2.  **Create a virtual environment (recommended):**
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
-
-3.  **Install dependencies:**
+2.  **Install dependencies:**
     ```bash
     pip install -r requirements.txt
     # Or use: python3 -m pip install -r requirements.txt
     ```
-    *Note: This installs PyTorch, Torchvision, NumPy, Matplotlib, Pandas, and thop.*
+    *Note: This installs the following requirements
+
+        * Python 3.8+
+        * NumPy (`pip install numpy`)
+        * Numba (`pip install numba` or `conda install numba`)
+        * For CUDA (Numba): `conda install numba cudatoolkit=<version>` (match your driver version) or `pip install numba` (ensure CUDA toolkit is installed separately and in PATH)
+        * PyTorch (`pip install torch torchvision torchaudio` or follow PyTorch website instructions for specific CPU/CUDA/MPS versions)
+        * TensorFlow (`pip install tensorflow`) - *Only* for `tf.keras.datasets.mnist` as used in examples. Can be replaced with `torchvision.datasets.MNIST`. This implementation uses TF for consistency with examples.
+        * Matplotlib (`pip install matplotlib`)
+        * Seaborn (`pip install seaborn`)
+        * Pandas (`pip install pandas`)
+        * Psutil (`pip install psutil`) - For basic RAM logging.
+        * NVIDIA GPU with CUDA support and compatible drivers.
+        * Apple Silicon Mac with macOS 12.3+.
 
 ## Dataset Download
 
 The MNIST dataset is required. It will be automatically downloaded to the `./data` directory when first needed by any script.
 
-## Requirements
-
-* Python 3.8+
-* NumPy (`pip install numpy`)
-* Numba (`pip install numba` or `conda install numba`)
-    * For CUDA (Numba): `conda install numba cudatoolkit=<version>` (match your driver version) or `pip install numba` (ensure CUDA toolkit is installed separately and in PATH)
-* PyTorch (`pip install torch torchvision torchaudio` or follow PyTorch website instructions for specific CPU/CUDA/MPS versions)
-* TensorFlow (`pip install tensorflow`) - *Only* for `tf.keras.datasets.mnist` as used in examples. Can be replaced with `torchvision.datasets.MNIST`. This implementation uses TF for consistency with examples.
-* Matplotlib (`pip install matplotlib`)
-* Seaborn (`pip install seaborn`)
-* Pandas (`pip install pandas`)
-* Psutil (`pip install psutil`) - For basic RAM logging.
-* NVIDIA GPU with CUDA support and compatible drivers.
-* Apple Silicon Mac with macOS 12.3+.
-
 ## Usage
 
-1.  **Setup Environment:** Install the required libraries (e.g., using `pip` or `conda`).
-2.  **Run Training & Evaluation:**
+1.  **Run Training & Evaluation:**
     Execute the main script from the `cnn_performance_comparison` directory. Choose the platform(s) to run using the `--platform` argument:
     ```bash
     # Run only the Numba CPU version
@@ -122,7 +114,7 @@ The MNIST dataset is required. It will be automatically downloaded to the `./dat
     ```
     The script will automatically skip platforms if the required hardware/software (like CUDA or MPS) is not detected.
     
-3.  **Analyze Results:**
+2.  **Analyze Results:**
     After running the experiments, analyze the logged metrics and generate plots:
     ```bash
     python3 evaluation/compare_results.py
