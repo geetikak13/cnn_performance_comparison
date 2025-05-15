@@ -1,0 +1,14 @@
+# Basic requirements for the project
+numpy
+numba
+# PyTorch: Specify versions if needed, or let pip pick compatible ones.
+# For CPU-only, 'torch' is usually enough.
+# If you want to try building a CUDA-enabled image later, you'd need specific torch CUDA versions.
+torch
+torchvision
+torchaudio
+tensorflow # For tf.keras.datasets.mnist
+matplotlib
+seaborn
+pandas
+psutil
