@@ -1,4 +1,4 @@
-# CNN Performance Comparison: CPU vs. CUDA vs. MPS vs. PyTorch Backends
+# Convolution Neural Network Performance Analysis: CPU-optimized vs GPU-optimized
 
 ## Project Goal
 
