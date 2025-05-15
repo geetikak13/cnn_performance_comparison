@@ -34,8 +34,13 @@ Hyperparameters (based on example files, can be overridden via command line):
 cnn_performance_comparison/
 ├── .gitignore
 ├── README.md
+├── Report/
+│   ├── 605ProjectReport.pdf      # Final Project Report
+│   ├── 605ProjectReport.tex      # Final Project Report latex
+│   ├── Group-6 Final Report.pptx # Final Project Presentation 
+│   ├── Group-6 Mid-Sem.pptx      # Mid Semester Project Presentation
 ├── data/
-│   └── preprocess.py           # Load/preprocess MNIST data
+│   └── preprocess.py             # Load/preprocess MNIST data
 ├── src/
 │   ├── model_cpu_numba.py        # CPU Numba implementation
 │   ├── model_cuda_numba.py       # CUDA Numba implementation
@@ -49,6 +54,29 @@ cnn_performance_comparison/
 │   └── compare_results.py        # Analysis and visualization script
 └── main.py                       # Main runner script
 ```
+
+1.  **Clone the repository :**
+    ```bash
+    git clone https://github.com/geetikak13/cnn_performance_comparison
+    cd model-pruning
+    ```
+
+2.  **Create a virtual environment (recommended):**
+    ```bash
+    python3 -m venv venv
+    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+    ```
+
+3.  **Install dependencies:**
+    ```bash
+    pip install -r requirements.txt
+    # Or use: python3 -m pip install -r requirements.txt
+    ```
+    *Note: This installs PyTorch, Torchvision, NumPy, Matplotlib, Pandas, and thop.*
+
+## Dataset Download
+
+The MNIST dataset is required. It will be automatically downloaded to the `./data` directory when first needed by any script.
 
 ## Requirements
 
@@ -99,7 +127,7 @@ cnn_performance_comparison/
     ```bash
     python3 evaluation/compare_results.py
     ```
-    This will print a summary table to the console and save a comparison plot to `results/comparison_plot.png`.
+    This will print a summary table to the console and save a comparison plot to `results/comparison_plot_combined.png`.
 
 ## Metrics Measured
 
